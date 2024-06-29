@@ -1,6 +1,8 @@
+let selectedNames = []; // Globale Variable für die ausgewählten Namen
+
 document.getElementById('startButton').addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('input[name="name"]:checked');
-    const selectedNames = Array.from(checkboxes).map(cb => cb.value);
+    selectedNames = Array.from(checkboxes).map(cb => cb.value);
 
     if (selectedNames.length === 0) {
         alert("Bitte wählen Sie mindestens einen Namen aus.");
@@ -45,5 +47,19 @@ document.getElementById('startButton').addEventListener('click', function() {
 
 // Reset button functionality
 document.getElementById('resetButton').addEventListener('click', function() {
-    window.location.reload();
+    const resetButton = document.getElementById('resetButton');
+    const animationContainer = document.getElementById('animationContainer');
+
+    if (resetButton.classList.contains('reset')) {
+        // Complete reset
+        window.location.reload();
+    } else {
+        // Partial reset (restore name selection)
+        resetButton.classList.add('reset');
+        resetButton.innerHTML = '&#8635;'; // Doppel-Pfeil-Symbol
+
+        // Clear result display
+        animationContainer.textContent = '';
+        animationContainer.id = '';
+    }
 });
