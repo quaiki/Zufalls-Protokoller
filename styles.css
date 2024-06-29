@@ -74,6 +74,21 @@ button:hover {
     background-color: #b71c1c;
 }
 
+.bottomButton {
+    font-size: 1.4em; /* 20% größer */
+    padding: 12px 24px; /* 20% größer */
+    margin-top: 12px; /* 20% größer */
+    cursor: pointer;
+    background-color: #0d47a1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.bottomButton:hover {
+    background-color: #0b3d91;
+}
+
 #animationContainer {
     margin-top: 24px; /* 20% größer */
     font-size: 1.8em; /* 20% größer */
@@ -82,8 +97,6 @@ button:hover {
     color: #fff;
 }
 
-#result {
-    font-size: 2.4em; /* 20% größer */
-    color: #00ff00; /* Ergebnis in Grün */
+#buttonContainer {
     margin-top: 24px; /* 20% größer */
 }
