@@ -1,3 +1,5 @@
+let interval; // Globale Variable für das Intervall
+
 document.getElementById('startButton').addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('input[name="name"]:checked');
     const selectedNames = Array.from(checkboxes).map(cb => cb.value);
@@ -32,4 +34,8 @@ document.getElementById('startButton').addEventListener('click', function() {
     setTimeout(() => {
         animationContainer.style.color = '#fff'; // Standardfarbe wiederherstellen
     }, 3000);
+});
+
+document.getElementById('resetButton').addEventListener('click', function() {
+    location.reload(); // Seite neu laden für Reset
 });
