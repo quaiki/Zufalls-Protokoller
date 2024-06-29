@@ -14,13 +14,12 @@ document.getElementById('startButton').addEventListener('click', function() {
     let currentIndex = 0;
     let animationDuration = 2000; // Animationsdauer auf 2 Sekunden (2000 Millisekunden) gesetzt
     let intervalTime = animationDuration / selectedNames.length; // Intervallzeit berechnet
+    let animationStep = 0;
 
     clearInterval(interval); // Vorheriges Intervall löschen
 
-    let animationStep = 0;
     interval = setInterval(() => {
-        animationContainer.textContent = selectedNames[currentIndex];
-        currentIndex = (currentIndex + 1) % selectedNames.length;
+        animationContainer.textContent = selectedNames[animationStep % selectedNames.length];
         animationStep++;
 
         if (animationStep === selectedNames.length) {
