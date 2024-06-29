@@ -12,7 +12,7 @@ document.getElementById('startButton').addEventListener('click', function() {
     soundEffect.play();
 
     let currentIndex = 0;
-    const totalDuration = 4000; // Total duration of 4 seconds
+    const totalDuration = 4000; // Gesamtdauer von 4 Sekunden
     const startTime = Date.now();
     const initialInterval = 50;
     const finalInterval = 300;
@@ -22,7 +22,7 @@ document.getElementById('startButton').addEventListener('click', function() {
         const elapsedTime = Date.now() - startTime;
         const progress = elapsedTime / totalDuration;
 
-        // Linear interpolation between initialInterval and finalInterval
+        // Lineare Interpolation zwischen initialInterval und finalInterval
         interval = initialInterval + (finalInterval - initialInterval) * progress;
         animationContainer.textContent = selectedNames[currentIndex];
         currentIndex = (currentIndex + 1) % selectedNames.length;
@@ -33,12 +33,6 @@ document.getElementById('startButton').addEventListener('click', function() {
             const randomName = selectedNames[Math.floor(Math.random() * selectedNames.length)];
             animationContainer.textContent = randomName;
             animationContainer.id = 'result';
-
-            // Save result to localStorage (or send to server in a real application)
-            const log = `Datum: ${new Date().toLocaleString()}, Name: ${randomName}\n`;
-            let logHistory = localStorage.getItem('logHistory') || '';
-            logHistory += log;
-            localStorage.setItem('logHistory', logHistory);
         }
     };
 
