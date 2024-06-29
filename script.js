@@ -12,23 +12,18 @@ document.getElementById('startButton').addEventListener('click', function() {
     soundEffect.play();
 
     let currentIndex = 0;
-    let animationDuration = 2000; // Änderung der Animationsdauer auf 2 Sekunden (2000 Millisekunden)
-    let intervalTime = 100; // Intervallzeit in Millisekunden
-    let animationStep = Math.floor(animationDuration / intervalTime); // Anzahl der Schritte
+    let animationDuration = 2000; // Animationsdauer auf 2 Sekunden (2000 Millisekunden) gesetzt
+    let intervalTime = animationDuration / selectedNames.length; // Intervallzeit berechnet
 
     clearInterval(interval); // Vorheriges Intervall löschen
 
+    let animationStep = 0;
     interval = setInterval(() => {
         animationContainer.textContent = selectedNames[currentIndex];
         currentIndex = (currentIndex + 1) % selectedNames.length;
-        animationStep--;
+        animationStep++;
 
-        // Geschwindigkeit der Animation: Erst schnell, dann langsamer
-        if (animationStep <= Math.floor(selectedNames.length / 2)) {
-            intervalTime += 50; // Intervallzeit erhöhen für langsameren Wechsel
-        }
-
-        if (animationStep === 0) {
+        if (animationStep === selectedNames.length) {
             clearInterval(interval);
             animationContainer.style.color = 'green'; // Ergebnis grün einfärben
         }
