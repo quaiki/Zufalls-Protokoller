@@ -8,6 +8,21 @@ body {
     font-size: 1.2em; /* 20% größer */
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 24px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 80%; /* Breite der Box */
+    max-width: 600px; /* Maximale Breite der Box */
+}
+
 h1 {
     font-size: 3em; /* 20% größer */
     margin-bottom: 24px;
@@ -15,10 +30,9 @@ h1 {
 }
 
 form {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 24px; /* 20% größer */
-    border-radius: 10px;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nameOption {
@@ -27,7 +41,7 @@ form {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
-    margin: 5px 0;
+    margin: 5px;
 }
 
 button {
@@ -47,9 +61,8 @@ button:hover {
 
 .resetButton {
     font-size: 1.4em; /* 20% größer */
-    padding: 12px 24px; /* 20% größer */
+    padding: 8px; /* Kleiner als der Start-Button */
     margin-top: 12px; /* 20% größer */
-    margin-left: 10px; /* Abstand zwischen den Buttons */
     cursor: pointer;
     background-color: #d32f2f;
     color: #fff;
