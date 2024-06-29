@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Zufallsname Generator</h1>
-    <form id="nameForm">
-        <label class="nameOption"><input type="checkbox" name="name" value="Name1"> Name1</label><br>
-        <label class="nameOption"><input type="checkbox" name="name" value="Name2"> Name2</label><br>
-        <label class="nameOption"><input type="checkbox" name="name" value="Name3"> Name3</label><br>
-        <label class="nameOption"><input type="checkbox" name="name" value="Name4"> Name4</label><br>
-        <label class="nameOption"><input type="checkbox" name="name" value="Name5"> Name5</label><br>
-        <button type="button" id="startButton">Start</button>
-        <button type="button" id="resetButton" class="resetButton">&#8634;</button>
-    </form>
-    <div id="animationContainer" class="nameOption"></div>
+    <div class="container">
+        <h1>Zufallsname Generator</h1>
+        <div id="nameSelection">
+            <form id="nameForm">
+                <label class="nameOption"><input type="checkbox" name="name" value="Name1"> Name1</label><br>
+                <label class="nameOption"><input type="checkbox" name="name" value="Name2"> Name2</label><br>
+                <label class="nameOption"><input type="checkbox" name="name" value="Name3"> Name3</label><br>
+                <label class="nameOption"><input type="checkbox" name="name" value="Name4"> Name4</label><br>
+                <label class="nameOption"><input type="checkbox" name="name" value="Name5"> Name5</label><br>
+                <button type="button" id="startButton">Start</button>
+                <button type="button" id="resetButton" class="resetButton">&#10226;</button>
+            </form>
+        </div>
+        <div id="animationBox" class="box">
+            <div id="animationContainer" class="nameOption"></div>
+        </div>
+    </div>
     <audio id="soundEffect" src="sound.mp3"></audio>
     <script src="script.js"></script>
 </body>
