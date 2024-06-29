@@ -32,7 +32,7 @@ document.getElementById('startButton').addEventListener('click', function() {
 
     // Zurücksetzen der Farbe nach 3 Sekunden
     setTimeout(() => {
-        animationContainer.style.color = '#fff'; // Standardfarbe wiederherstellen
+        animationContainer.style.color = '#000'; // Standardfarbe wiederherstellen
     }, 3000);
 });
 
