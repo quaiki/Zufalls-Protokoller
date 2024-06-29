@@ -36,5 +36,9 @@ document.getElementById('startButton').addEventListener('click', function() {
         }
     };
 
+    // Reset the result display before starting the new animation
+    animationContainer.textContent = '';
+    animationContainer.id = '';
+
     animate();
 });
