@@ -7,12 +7,15 @@ document.getElementById('startButton').addEventListener('click', function() {
         return;
     }
 
+    // Seite neu laden
+    window.location.reload();
+
     const animationContainer = document.getElementById('animationContainer');
     const soundEffect = document.getElementById('soundEffect');
     soundEffect.play();
 
     let currentIndex = 0;
-    const totalDuration = 4000; // Gesamtdauer von 4 Sekunden
+    const totalDuration = 3000; // Gesamtdauer von 3 Sekunden
     const startTime = Date.now();
     const initialInterval = 50;
     const finalInterval = 300;
