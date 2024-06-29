@@ -7,9 +7,6 @@ document.getElementById('startButton').addEventListener('click', function() {
         return;
     }
 
-    // Seite neu laden
-    window.location.reload();
-
     const animationContainer = document.getElementById('animationContainer');
     const soundEffect = document.getElementById('soundEffect');
     soundEffect.play();
@@ -44,4 +41,9 @@ document.getElementById('startButton').addEventListener('click', function() {
     animationContainer.id = '';
 
     animate();
+});
+
+// Reset button functionality
+document.getElementById('resetButton').addEventListener('click', function() {
+    window.location.reload();
 });
