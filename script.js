@@ -1,3 +1,5 @@
+let interval; // Globale Variable für das Intervall
+
 document.getElementById('startButton').addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('input[name="name"]:checked');
     const selectedNames = Array.from(checkboxes).map(cb => cb.value);
@@ -16,7 +18,9 @@ document.getElementById('startButton').addEventListener('click', function() {
     let intervalTime = 100; // Intervallzeit in Millisekunden
     let animationStep = Math.floor(animationDuration / intervalTime); // Anzahl der Schritte
 
-    const interval = setInterval(() => {
+    clearInterval(interval); // Vorheriges Intervall löschen
+
+    interval = setInterval(() => {
         animationContainer.textContent = selectedNames[currentIndex];
         currentIndex = (currentIndex + 1) % selectedNames.length;
         animationStep--;
