@@ -45,6 +45,22 @@ button:hover {
     background-color: #0b3d91;
 }
 
+.resetButton {
+    font-size: 1.4em; /* 20% größer */
+    padding: 12px 24px; /* 20% größer */
+    margin-top: 12px; /* 20% größer */
+    margin-left: 10px; /* Abstand zwischen den Buttons */
+    cursor: pointer;
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Runde Form */
+}
+
+.resetButton:hover {
+    background-color: #b71c1c;
+}
+
 #animationContainer {
     margin-top: 24px; /* 20% größer */
     font-size: 1.8em; /* 20% größer */
