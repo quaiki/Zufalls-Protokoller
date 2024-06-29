@@ -1,5 +1,3 @@
-let interval; // Globale Variable für das Intervall
-
 document.getElementById('startButton').addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('input[name="name"]:checked');
     const selectedNames = Array.from(checkboxes).map(cb => cb.value);
@@ -14,7 +12,7 @@ document.getElementById('startButton').addEventListener('click', function() {
     soundEffect.play();
 
     let currentIndex = 0;
-    let animationDuration = 3000; // Dauer der Animation in Millisekunden
+    let animationDuration = 2000; // Änderung der Animationsdauer auf 2 Sekunden (2000 Millisekunden)
     let intervalTime = 100; // Intervallzeit in Millisekunden
     let animationStep = Math.floor(animationDuration / intervalTime); // Anzahl der Schritte
 
@@ -40,8 +38,4 @@ document.getElementById('startButton').addEventListener('click', function() {
     setTimeout(() => {
         animationContainer.style.color = '#fff'; // Standardfarbe wiederherstellen
     }, 3000);
-});
-
-document.getElementById('resetButton').addEventListener('click', function() {
-    location.reload(); // Seite neu laden für Reset
 });
