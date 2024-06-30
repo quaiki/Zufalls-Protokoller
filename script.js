@@ -12,32 +12,33 @@ document.getElementById('startButton').addEventListener('click', function() {
     soundEffect.play();
 
     let currentIndex = 0;
-    let animationDuration = 3000; // Dauer der Animation in Millisekunden
-    let intervalTime = 100; // Intervallzeit in Millisekunden
-    let animationStep = Math.floor(animationDuration / intervalTime); // Anzahl der Schritte
+    const totalDuration = 3000; // Gesamtdauer von 3 Sekunden
+    const startTime = Date.now();
+    const initialInterval = 50;
+    const finalInterval = 300;
+    let interval = initialInterval;
 
-    const interval = setInterval(() => {
+    const animate = () => {
+        const elapsedTime = Date.now() - startTime;
+        const progress = elapsedTime / totalDuration;
+
+        // Lineare Interpolation zwischen initialInterval und finalInterval
+        interval = initialInterval + (finalInterval - initialInterval) * progress;
         animationContainer.textContent = selectedNames[currentIndex];
         currentIndex = (currentIndex + 1) % selectedNames.length;
-        animationStep--;
 
-        // Geschwindigkeit der Animation: Erst schnell, dann langsamer
-        if (animationStep <= Math.floor(selectedNames.length / 2)) {
-            intervalTime += 50; // Intervallzeit erhöhen für langsameren Wechsel
+        if (elapsedTime < totalDuration) {
+            setTimeout(animate, interval);
+        } else {
+            const randomName = selectedNames[Math.floor(Math.random() * selectedNames.length)];
+            animationContainer.textContent = randomName;
+            animationContainer.id = 'result';
         }
+    };
 
-        if (animationStep === 0) {
-            clearInterval(interval);
-            animationContainer.style.color = 'green'; // Ergebnis grün einfärben
-        }
-    }, intervalTime);
+    // Reset the result display before starting the new animation
+    animationContainer.textContent = '';
+    animationContainer.id = '';
 
-    // Zurücksetzen der Farbe nach 3 Sekunden
-    setTimeout(() => {
-        animationContainer.style.color = '#fff'; // Standardfarbe wiederherstellen
-    }, 3000);
-});
-
-document.getElementById('resetButton').addEventListener('click', function() {
-    location.reload(); // Seite neu laden für Reset
+    animate();
 });
