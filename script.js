@@ -1,5 +1,3 @@
-let interval; // Globale Variable für das Intervall
-
 document.getElementById('startButton').addEventListener('click', function() {
     const checkboxes = document.querySelectorAll('input[name="name"]:checked');
     const selectedNames = Array.from(checkboxes).map(cb => cb.value);
@@ -14,17 +12,21 @@ document.getElementById('startButton').addEventListener('click', function() {
     soundEffect.play();
 
     let currentIndex = 0;
-    let animationDuration = 2000; // Animationsdauer auf 2 Sekunden (2000 Millisekunden) gesetzt
-    let intervalTime = animationDuration / selectedNames.length; // Intervallzeit berechnet
-    let animationStep = 0;
+    let animationDuration = 3000; // Dauer der Animation in Millisekunden
+    let intervalTime = 100; // Intervallzeit in Millisekunden
+    let animationStep = Math.floor(animationDuration / intervalTime); // Anzahl der Schritte
 
-    clearInterval(interval); // Vorheriges Intervall löschen
+    const interval = setInterval(() => {
+        animationContainer.textContent = selectedNames[currentIndex];
+        currentIndex = (currentIndex + 1) % selectedNames.length;
+        animationStep--;
 
-    interval = setInterval(() => {
-        animationContainer.textContent = selectedNames[animationStep % selectedNames.length];
-        animationStep++;
+        // Geschwindigkeit der Animation: Erst schnell, dann langsamer
+        if (animationStep <= Math.floor(selectedNames.length / 2)) {
+            intervalTime += 50; // Intervallzeit erhöhen für langsameren Wechsel
+        }
 
-        if (animationStep === selectedNames.length) {
+        if (animationStep === 0) {
             clearInterval(interval);
             animationContainer.style.color = 'green'; // Ergebnis grün einfärben
         }
@@ -32,7 +34,7 @@ document.getElementById('startButton').addEventListener('click', function() {
 
     // Zurücksetzen der Farbe nach 3 Sekunden
     setTimeout(() => {
-        animationContainer.style.color = '#000'; // Standardfarbe wiederherstellen
+        animationContainer.style.color = '#fff'; // Standardfarbe wiederherstellen
     }, 3000);
 });
 
